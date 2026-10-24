@@ -12,7 +12,7 @@ one-dimensional measurements.
 
 setup(
     name             = 'spm1d',
-    version          = '0.4.54',
+    version          = '0.4.55',
     description      = 'One-Dimensional Statistical Parametric Mapping',
     author           = 'Todd Pataky',
     author_email     = 'spm1d.mail@gmail.com',
