@@ -226,6 +226,10 @@ class _CIMultiMean(_CI):
 
     def __init__(self, spmi, meanA, meanB, hstar, criterion='meanB'):
         super(_CIMultiMean, self).__init__(spmi)
+        if criterion is None:
+            criterion    = 'meanB'
+        if criterion not in ('meanB', 'tailB'):
+            raise ValueError('When datum is "meanA", "mu" must be None, "meanB" or "tailB". Received: %s' %repr(criterion))
         ### main parameters:
         self.meanA           = meanA if self.dim==1 else _asfloat(meanA)
         self.meanB           = meanB if self.dim==1 else _asfloat(meanB)
