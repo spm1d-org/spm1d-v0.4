@@ -1,13 +1,15 @@
 name: docs
 
-#  Build the documentation and keep the HTML as the workflow artifact
-#  docs-html.  On master, signal spm1d.org so that the site fetches the new
-#  build (needs the secret SITE_DISPATCH_TOKEN;  without it that step is
-#  skipped).
+#  Build the documentation, keep the HTML as the workflow artifact docs-html
+#  and signal spm1d.org so that the site fetches the new build (needs the
+#  secret SITE_DISPATCH_TOKEN;  without it that step is skipped).
+#
+#  Runs as the last step of a release (publish.yml calls it), or by hand for a
+#  docs-only fix (Actions -> docs -> Run workflow), which is refused on any
+#  branch other than master.
 
 on:
-  push:
-    branches: [ master ]
+  workflow_call:
   workflow_dispatch:
 
 jobs:
@@ -15,6 +17,11 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
+    - name: Refuse a manual run on a branch other than master
+      if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/master'
+      run: |
+        echo "::error::docs can only be run by hand on master, not on $GITHUB_REF_NAME"
+        exit 1
     - name: Checkout
       uses: actions/checkout@v5
     - name: Set up Python
@@ -42,7 +49,6 @@ jobs:
         name: docs-html
         path: doc/build/html
     - name: Notify the site
-      if: github.ref == 'refs/heads/master'
       env:
         TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
       run: |

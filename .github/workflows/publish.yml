@@ -1,0 +1,83 @@
+name: publish
+
+#  Publish a release when a version tag is pushed:
+#
+#      python scripts/update_version.py 0.4.55
+#      git commit -am "version 0.4.55"
+#      git tag v0.4.55
+#      git push && git push --tags
+#
+#  In order, stopping at the first failure:  check that the tagged commit is on
+#  master and that the tag matches the version in every file;  run the tests;
+#  upload to PyPI;  create the GitHub Release with automatic notes;  build the
+#  docs and signal spm1d.org.  Pushing commits (to any branch) publishes nothing.
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write                         # to create the GitHub Release
+
+jobs:
+
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0                    # all branches, to find the tagged commit on master
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - name: Check that the tagged commit is on master
+      run: |
+        if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/master; then
+          echo "::error::the commit tagged $GITHUB_REF_NAME is not on master;  nothing is published"
+          exit 1
+        fi
+    - name: Check that the tag matches the version in every file
+      run: python scripts/update_version.py --check "${GITHUB_REF_NAME#v}"
+
+  test:
+    needs: check
+    uses: ./.github/workflows/test.yml
+
+  pypi:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Upload to PyPI
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      run: |
+        python setup.py sdist bdist_wheel
+        twine upload dist/*
+
+  release:
+    needs: pypi
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create the GitHub Release
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --title "$GITHUB_REF_NAME" --generate-notes --verify-tag
+
+  docs:
+    needs: release
+    uses: ./.github/workflows/docs.yml
+    secrets: inherit
