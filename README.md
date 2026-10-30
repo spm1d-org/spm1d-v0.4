@@ -11,8 +11,6 @@ spm1d
 
 One-Dimensional <b>Statistical Parametric Mapping</b> in Python.
 
-Find this package useful? Please press star ★ , thank you!
-
 
 spm1d uses <b>Random Field Theory</b> expectations regarding the behavior of smooth, one-dimensional Gaussian fields to make statistical inferences regarding a set of one-dimensional continua.
 
@@ -21,6 +19,16 @@ Software documentation:
 
 MATLAB source code:
 https://github.com/0todd0000/spm1dmatlab
+
+
+
+<br>
+<br>
+
+Find this package useful? Please press star ★ , thank you!
+
+<br>
+<br>
 
 
 
