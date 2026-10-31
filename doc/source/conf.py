@@ -52,6 +52,7 @@ extensions = [
 	'sphinx.ext.viewcode',
 	'matplotlib.sphinxext.plot_directive',
 	'nbsphinx',
+	'sphinxcontrib.jquery',
 ]
 
 	# 'matplotlib.sphinxext.mathmpl',
