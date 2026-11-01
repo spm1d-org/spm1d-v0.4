@@ -20,10 +20,10 @@ Copyright (C) 2026  Todd Pataky
 '''
 
 
-__version__ = '0.4.55'  # 2026-10-25
+__version__ = '0.4.56'  # 2026-11-01
 
 
-__all__ = ['data', 'io', 'plot', 'rft1d', 'stats', 'util']
+__all__ = ['data', 'io', 'plot', 'rft1d', 'stats', 'util', 'get_config']
 
 from . import data
 from . import geom
@@ -32,4 +32,5 @@ from . import plot
 from . import rft1d
 from . import stats
 from . import util
+from . _support import get_config
 
