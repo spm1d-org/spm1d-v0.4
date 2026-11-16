@@ -113,6 +113,9 @@ def estimate_df_anova2(Y, X, eij, Q, C):
 
 
 
+# Translated from the SPM8 version of spm_reml.m:
+# Copyright (C) 2008 Wellcome Trust Centre for Neuroimaging
+# John Ashburner & Karl Friston
 def reml(YY, X, Q, N=1, K=128):
     '''
     New version of reml  2025-05-18 which uses np.array instead of np.matrix
@@ -178,6 +181,9 @@ def reml(YY, X, Q, N=1, K=128):
 
 
 
+# Translated from SPM12 spm_sp.m:
+# Copyright (C) 2008 Wellcome Trust Centre for Neuroimaging
+# Jean-Baptiste Poline
 class MatrixWithProjections(object):  # following spm_sp:  Orthogonal (design) matrix space setting & manipulation
     def __init__(self, X):
         self.X   = X
@@ -209,6 +215,9 @@ class MatrixWithProjections(object):  # following spm_sp:  Orthogonal (design) m
 
 
 
+# Translated from SPM12 spm_SpUtil.m:
+# Copyright (C) 2008 Wellcome Trust Centre for Neuroimaging
+# Andrew Holmes Jean-Baptiste Poline
 def traceMV(V, X):  # a bit different from traceMV in _cov.py
     sX     = MatrixWithProjections( X )
     rk     = sX.rk
@@ -220,6 +229,9 @@ def traceMV(V, X):  # a bit different from traceMV in _cov.py
 
 
 
+# Translated from SPM12 spm_SpUtil.m:
+# Copyright (C) 2008 Wellcome Trust Centre for Neuroimaging
+# Andrew Holmes Jean-Baptiste Poline
 def traceRV(V, X):
     rank    = np.linalg.matrix_rank
     rk      = rank(X)

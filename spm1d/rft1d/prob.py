@@ -88,12 +88,18 @@ def _replaceWith0DpValueIfPossible(STAT, P, c, csize, z, df, Q, n=1):
 	else:
 		return P
 
+# Translated from SPM12 spm_ECdensity.m:
+# Copyright (C) 1999-2013 Wellcome Trust Centre for Neuroimaging
+# Karl Friston
 def ec_density_Z(z):
 	ec0d        = 1 - stats.norm.cdf(z)
 	ec1d        = SQRT_4LOG2 / TWO_PI   *  exp(-0.5*(z*z))
 	return [ec0d, ec1d]
 
 
+# Translated from SPM12 spm_ECdensity.m:
+# Copyright (C) 1999-2013 Wellcome Trust Centre for Neuroimaging
+# Karl Friston
 def ec_density_T(z, df):
 	'''
 	Reference:  Worsley KJ et al. (1996) Hum Brain Mapp 4:58-73
@@ -108,6 +114,9 @@ def ec_density_T(z, df):
 	EC.append(  a**0.5 / TWO_PI * c  )   #dim: 1
 	return EC
 
+# Translated from SPM12 spm_ECdensity.m:
+# Copyright (C) 1999-2013 Wellcome Trust Centre for Neuroimaging
+# Karl Friston
 def ec_density_F(z, df):
 	if z<0:   
 		return [1, np.inf]    #to bypass warnings in critical threshold calculation
@@ -120,6 +129,9 @@ def ec_density_F(z, df):
 	EC.append(  a**0.5 * np.exp(gammaln((v+k-1)/2)-b)*2**0.5 *(k*z/v)**(0.5*(k-1))*(1+k*z/v)**(-0.5*(v+k-2))  )
 	return EC
 
+# Translated from SPM12 spm_ECdensity.m:
+# Copyright (C) 1999-2013 Wellcome Trust Centre for Neuroimaging
+# Karl Friston
 def ec_density_X2(z, df):
 	v    = float(df[1])
 	a    = FOUR_LOG2 / TWO_PI
@@ -158,6 +170,9 @@ def poisson_cdf(a, b):
 	return p
 
 
+# Translated from SPM12 spm_P_RF.m:
+# Copyright (C) 1999-2013 Wellcome Trust Centre for Neuroimaging
+# Karl Friston
 def rft(c, k, STAT, Z, df, R, n=1, Q=None, expectations_only=False, version='spm12'):
 	'''
 	Random Field Theory probabilities and expectations using unified Euler Characteristic (EC) theory.
