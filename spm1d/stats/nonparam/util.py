@@ -1,33 +1,37 @@
 
+import itertools
 import numpy as np
 
 
 def permutations_without_repetition(labels):
     '''
-    Modified from:
-    https://stackoverflow.com/questions/38544460/how-to-generate-permutations-without-generating-repeating-results-but-with-a-fix
-    Thank you nneonneo!
-    '''
-    from collections import Counter
-    from itertools import combinations
+    Generate all distinct orderings of *labels*.
 
+    Positions are assigned to the smallest label first and then to each
+    following label among the positions that remain.
+    '''
     if isinstance(labels, np.ndarray):
         labels = labels.tolist()
-    partitions = list(  Counter(labels).items()  )
-    partitions.sort()
-    k = len(partitions)
-    def _helper(idxset, i):
-        if len(idxset) == 0:
-            yield ()
-            return
-        for pos in combinations(idxset, partitions[i][1]):
-            for res in _helper(sorted(set(idxset) - set(pos)), i+1):
-                yield (pos,) + res
-
-    n = len(labels)
-    for poses in _helper(list(range(n)), 0):
-        out = [None] * n
-        for i, pos in enumerate(poses):
-            for idx in pos:
-                out[idx] = partitions[i][0]
-        yield out
+    n      = len(labels)
+    if n == 0:
+        yield []
+        return
+    values = sorted(set(labels))
+    counts = [labels.count(v) for v in values]
+    perm   = [None] * n
+    free   = [list(range(n))]
+    stack  = [itertools.combinations(free[0], counts[0])]
+    while stack:
+        k      = len(stack) - 1
+        chosen = next(stack[k], None)
+        if chosen is None:
+            stack.pop()
+            free.pop()
+            continue
+        for i in chosen:
+            perm[i] = values[k]
+        if k == len(values) - 1:
+            yield list(perm)
+        else:
+            free.append( [i for i in free[k] if i not in chosen] )
+            stack.append( itertools.combinations(free[k+1], counts[k+1]) )
