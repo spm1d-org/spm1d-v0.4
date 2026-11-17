@@ -109,7 +109,7 @@ Notes on 1D datasets
 			Data dim  :  1
 			Reference :  Besier, T. F., Fredericson, M., Gold, G. E., Beaupré, G. S., & Delp, S. L. (2009). Knee muscle forces during walking and running in patellofemoral pain patients and pain-free controls. Journal of Biomechanics, 42(7), 898–905. http://doi.org/10.1016/j.jbiomech.2009.01.032
 			Web       :  https://simtk.org/home/muscleforces
-			Data file :  /Users/todd/Documents/Python/myLibraries/spm1d/data/datafiles/Besier2009kneeflexion.npz
+			Data file :  /path/to/spm1d/data/datafiles/Besier2009kneeflexion.npz
 			Results   :  Pataky, T. C., Vanrenterghem, J., & Robinson, M. A. (2015). Two-way ANOVA for scalar trajectories, with experimental evidence of non-phasic interactions. Journal of Biomechanics, 48(1), 186–189. http://doi.org/10.1016/j.jbiomech.2014.10.013
 		(Expected results)
 			F          :  None

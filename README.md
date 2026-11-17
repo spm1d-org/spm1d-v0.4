@@ -1,7 +1,7 @@
 [![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)](https://www.python.org)
 [![Numpy](https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org)
 [![Scipy](https://img.shields.io/badge/SciPy-654FF0?style=for-the-badge&logo=SciPy&logoColor=white)](https://scipy.org)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![version](https://img.shields.io/badge/version-0.4.58-blue)
 [![downloads](https://img.shields.io/pypi/dm/spm1d?label=downloads)](https://pypistats.org/packages/spm1d)
 
@@ -15,10 +15,10 @@ One-Dimensional <b>Statistical Parametric Mapping</b> in Python.
 spm1d uses <b>Random Field Theory</b> expectations regarding the behavior of smooth, one-dimensional Gaussian fields to make statistical inferences regarding a set of one-dimensional continua.
 
 Software documentation:
-[www.spm1d.org](http://spm1d.org)
+[spm1d.org](https://spm1d.org)
 
 MATLAB source code:
-https://github.com/0todd0000/spm1dmatlab
+https://github.com/spm1d-org/spm1d-matlab-v0.4
 
 
 
@@ -43,7 +43,7 @@ A bug in nonparametric inference for small sample sizes was discovered in May 20
 Issues
 -------
 
-Please report software bugs or other problems by searching existing issues or creating a new issue [here](https://github.com/0todd0000/spm1d/issues).
+Please report software bugs or other problems by searching existing issues or creating a new issue [here](https://github.com/spm1d-org/spm1d-v0.4/issues).
 
 
 Contributing

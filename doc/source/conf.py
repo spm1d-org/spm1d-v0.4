@@ -25,10 +25,6 @@ import spm1d
 from spm1d import rft1d
 
 
-# sys.path.append('/Users/todd/WorkingCopies/spm1d(github)/branches/nonparam')
-# sys.path.append('/Users/todd/WorkingCopies/spm1d/branches/nonparam')
-# import spm1d
-# from spm1d import rft1d
 
 
 # -- General configuration ------------------------------------------------
