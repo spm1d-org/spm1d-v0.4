@@ -29,7 +29,7 @@ class SpeedGRFcategorical(_base.DatasetANOVA1, _base.Dataset1D):
 class Weather(_base.DatasetANOVA1, _base.Dataset1D):
 	def _set_values(self):
 		self.cite     = 'Ramsay JO, Silverman BW (2005). Functional Data Analysis (Second Edition), Springer, New York.'
-		self.www      = 'http://www.psych.mcgill.ca/misc/fda/ex-weather-a1.html'
+		self.www      = 'https://cran.r-project.org/package=fda'
 		fname         = os.path.join(_base.get_datafilepath(), 'weather.npz')
 		Z             = np.load(fname)
 		y0,y1,y2,y3   = Z['y0'], Z['y1'], Z['y2'], Z['y3']

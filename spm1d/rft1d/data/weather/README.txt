@@ -1,16 +1,14 @@
-This dataset was made available by Prof. James O. Ramsay
-of McGill University. The dataset was download from:
-http://www.psych.mcgill.ca/misc/fda/downloads/FDAfuns/Matlab
-on 16 August 2014 (see the ./examples/weather directory).
+Canadian weather dataset
 
-No license was found with that dataset. Only "daily.m" and
-"daily.mat" from that dataset are redistributed here, on
-the condition that the original source be acknowledged.
+"CanadianWeather.rda" is an unmodified copy of "data/CanadianWeather.rda"
+from the R package "fda" (version 6.1.9) by James Ramsay, Giles Hooker and
+Spencer Graves:
+https://cran.r-project.org/package=fda
+The "fda" package is distributed under the license "GPL (>= 2)".
 
-The dataset is described here:
-http://www.psych.mcgill.ca/misc/fda/ex-weather-a1.html
-... and also in:
+"CanadianWeather.npz" is a conversion of
+"CanadianWeather.rda" made on 17 November 2026. The values are unchanged.
+
+The dataset is described in:
 Ramsay JO, Silverman BW (2005). Functional Data Analysis
 (Second Edition), Springer, New York.
-Chapter 13: "Modelling functional responses with
-multivariate covariates"

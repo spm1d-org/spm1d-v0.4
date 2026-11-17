@@ -1,4 +1,4 @@
 include LICENSE.txt
 include README.md
 include setup.py
-global-include spm1d/data *.py *.npz *.npy *.m *.mat *.txt
+global-include spm1d/data *.py *.npz *.npy *.m *.mat *.txt *.rda
