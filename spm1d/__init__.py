@@ -20,7 +20,7 @@ Copyright (C) 2026  Todd Pataky
 '''
 
 
-__version__ = '0.4.57'  # 2026-11-17
+__version__ = '0.4.58'  # 2026-11-17
 
 
 __all__ = ['data', 'io', 'plot', 'rft1d', 'stats', 'util', 'get_config']
