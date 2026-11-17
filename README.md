@@ -2,7 +2,7 @@
 [![Numpy](https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org)
 [![Scipy](https://img.shields.io/badge/SciPy-654FF0?style=for-the-badge&logo=SciPy&logoColor=white)](https://scipy.org)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![version](https://img.shields.io/badge/version-0.4.58-blue)
+![version](https://img.shields.io/badge/version-0.4.59-blue)
 [![downloads](https://img.shields.io/pypi/dm/spm1d?label=downloads)](https://pypistats.org/packages/spm1d)
 
 
