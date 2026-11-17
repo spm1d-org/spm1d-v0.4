@@ -76,7 +76,7 @@ Besier, T. F., Fredericson, M., Gold, G. E., Beaupré, G. S., & Delp, S. L. (200
 
 Results appear in:
 
-Pataky, T., Robinson, M., & Vanrenterghem, J. (2015). Journal of Biomechanics. Journal of Biomechanics, 48(1), 190–192. http://doi.org/10.1016/j.jbiomech.2014.09.025
+Pataky TC, Vanrenterghem J, Robinson MA (2015). Zero- vs. one-dimensional, parametric vs. non-parametric, and confidence interval vs. hypothesis testing procedures in one-dimensional biomechanical trajectory analysis. Journal of Biomechanics 48 (7): 1277–1285. https://doi.org/10.1016/j.jbiomech.2015.02.051
 
 
 .. plot:: pyplots/stats1d/ex_hotellings2.py
@@ -106,7 +106,7 @@ Dorn, T. W., Schache, A. G., & Pandy, M. G. (2012). Muscular strategy shift in h
 
 Results appear in:
 
-Pataky, T., Robinson, M., & Vanrenterghem, J. (2015). Journal of Biomechanics. Journal of Biomechanics, 48(1), 190–192. http://doi.org/10.1016/j.jbiomech.2014.09.025
+Pataky TC, Vanrenterghem J, Robinson MA (2015). Zero- vs. one-dimensional, parametric vs. non-parametric, and confidence interval vs. hypothesis testing procedures in one-dimensional biomechanical trajectory analysis. Journal of Biomechanics 48 (7): 1277–1285. https://doi.org/10.1016/j.jbiomech.2015.02.051
 
 .. plot:: pyplots/stats1d/ex_cca.py
 

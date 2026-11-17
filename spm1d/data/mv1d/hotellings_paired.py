@@ -11,7 +11,7 @@ class Neptune1999kneekin(_base.DatasetHotellingsPaired, _base.Dataset1D):
 	def _set_values(self):
 		self.cite     = 'Neptune, R. R., Wright, I. C., & van den Bogert, A. J. (1999). Muscle coordination and function during cutting movements. Medicine & Science in Sports & Exercise, 31(2), 294–302.'
 		self.www      = 'http://isbweb.org/data/rrn/index.html'
-		self.note     = 'Results  ', 'Pataky, T., Robinson, M., & Vanrenterghem, J. (2015). Journal of Biomechanics. Journal of Biomechanics, 48(1), 190–192. http://doi.org/10.1016/j.jbiomech.2014.09.025'
+		self.note     = 'Results  ', 'Pataky TC, Vanrenterghem J, Robinson MA (2015). Zero- vs. one-dimensional, parametric vs. non-parametric, and confidence interval vs. hypothesis testing procedures in one-dimensional biomechanical trajectory analysis. Journal of Biomechanics 48 (7): 1277–1285. https://doi.org/10.1016/j.jbiomech.2015.02.051'
 		self.datafile = os.path.join(_base.get_datafilepath(), 'Neptune1999kneekin.npz')
 		Z             = np.load(self.datafile)
 		self.YA       = Z['YA']

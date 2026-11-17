@@ -21,7 +21,7 @@ References
 
 * Pataky TC, Vanrenterghem J, Robinson MA (2016). `The probability of false positives in zero-dimensional analyses of one-dimensional kinematic, force and EMG trajectories <https://www.researchgate.net/publication/299433470_The_probability_of_false_positives_in_zero-dimensional_analyses_of_one-dimensional_kinematic_force_and_EMG_trajectories>`_. *Journal of Biomechanics* **49(9)**: 1468-1476.
 
-* Pataky TC (2016). `rft1d: Smooth one-dimensional random field upcrossing probabilities in Python <http://dx.doi.org/10.18637/jss.v071.i07>`_, *Journal of Statistical Software*, **71(7)**: i07.
+* Pataky TC (2016). `rft1d: Smooth one-dimensional random field upcrossing probabilities in Python <http://dx.doi.org/10.18637/jss.v071.i07>`_, *Journal of Statistical Software* 71(7): 1–22.
 
 * Pataky TC, Vanrenterghem J, Robinson MA (2015). `Zero- vs. one-dimensional, parametric vs. non-parametric, and confidence interval vs. hypothesis testing procedures in one-dimensional biomechanical trajectory analysis. <https://www.researchgate.net/publication/273576725_Zero-_vs_one-dimensional_parametric_vs_non-parametric_and_confidence_interval_vs_hypothesis_testing_procedures_in_one-dimensional_biomechanical_trajectory_analysis>`_ *Journal of Biomechanics* **48** (7): 1277–1285.
 
