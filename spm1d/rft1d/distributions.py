@@ -103,39 +103,48 @@ All distributions share the following functions:
 # Copyright (C) 2026  Todd Pataky
 
 
+import types
 import numpy as np
 from scipy import stats
 from . prob import RFTCalculator, RFTCalculatorResels
 
 
+_DF_EXAMPLES = {
+	0 : (('DOFFLAG2', ''), ('DOFFLAG', ''),
+	     ('\n\t\t\t*df* -- degrees of freedom (int or float)\n', '')),
+	1 : (('DOFFLAG3', ', 8'), ('DOFFLAG2', ', 8'), ('DOFFLAG', ' 8,')),
+	2 : (('DOFFLAG3', ', 4, 21'), ('DOFFLAG2', ', (3,15)'), ('DOFFLAG', ' (2,14),'),
+	     ('degrees of freedom (int or float)', 'degrees of freedom (two-tuple of int or float)')),
+}
+
+
+def _fill_docstring(doc, distname, ndf):
+	'''Substitute the distribution name and the degree-of-freedom examples.'''
+	doc = doc.replace('DISTFLAG', distname)
+	for old, new in _DF_EXAMPLES.get(ndf, ()):
+		doc = doc.replace(old, new)
+	return doc
+
+
+def _base_docstring(cls, name):
+	'''Docstring of method *name* from the first direct base that has one.'''
+	for base in cls.__bases__:
+		doc = getattr(getattr(base, name, None), '__doc__', None)
+		if doc:
+			return doc
+	return None
+
+
 def add_docstrings(distname, ndf=0):
-	def add_docstrings_decorator(cls):
-		### this decorator was adapted from:
-		### http://stackoverflow.com/questions/8100166/inheriting-methods-docstrings-in-python
-		for name, func in vars(cls).items():
-			if not func.__doc__:
-				for parent in cls.__bases__:
-					parfunc            = getattr(parent, name)
-					if parfunc and getattr(parfunc, '__doc__', None):
-						docstr0 = parfunc.__doc__
-						s       = docstr0.replace('DISTFLAG', distname)
-						if ndf==0:
-							s   = s.replace('DOFFLAG2', '')
-							s   = s.replace('DOFFLAG', '')
-							s   = s.replace('\n\t\t\t*df* -- degrees of freedom (int or float)\n', '')
-						elif ndf==1:
-							s   = s.replace('DOFFLAG3', ', 8')
-							s   = s.replace('DOFFLAG2', ', 8')
-							s   = s.replace('DOFFLAG', ' 8,')
-						elif ndf==2:
-							s   = s.replace('DOFFLAG3', ', 4, 21')
-							s   = s.replace('DOFFLAG2', ', (3,15)')
-							s   = s.replace('DOFFLAG', ' (2,14),')
-							s   = s.replace('degrees of freedom (int or float)', 'degrees of freedom (two-tuple of int or float)')
-						func.__doc__ = s
-						break
+	def decorate(cls):
+		undocumented = [(name, attr)  for name, attr in vars(cls).items()
+		                if isinstance(attr, types.FunctionType) and not attr.__doc__]
+		for name, method in undocumented:
+			doc = _base_docstring(cls, name)
+			if doc is not None:
+				method.__doc__ = _fill_docstring(doc, distname, ndf)
 		return cls
-	return add_docstrings_decorator
+	return decorate
 
 
 class _RFTDistribution(object):
