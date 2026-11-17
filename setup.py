@@ -17,6 +17,7 @@ setup(
     author           = 'Todd Pataky',
     author_email     = 'spm1d.mail@gmail.com',
     url              = 'https://github.com/0todd0000/spm1d',
+    license          = 'GPL-3.0-or-later',
     download_url     = 'https://github.com/0todd0000/spm1d/archive/master.zip',
     packages         = ['spm1d'],
     package_data     = {'spm1d' : ['examples/*.*', 'data/*.*'] },
