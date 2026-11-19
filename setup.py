@@ -24,7 +24,7 @@ setup(
     include_package_data = True,
     long_description = long_description,
     long_description_content_type = 'text/markdown',
-    python_requires  = '>=3.9',
+    python_requires  = '>=3.10',
     keywords         = ['statistics', 'time series analysis'],
     classifiers      = [
         'Topic :: Scientific/Engineering',
